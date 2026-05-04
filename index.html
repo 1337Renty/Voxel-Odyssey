@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel Odyssey | Dev Diary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --voxel-green: #4ADE80;
+            --voxel-dark: #0B0E14;
+        }
+        body {
+            background-color: var(--voxel-dark);
+            color: #E2E8F0;
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            background-image: radial-gradient(circle at 2px 2px, #1e293b 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        h1, h2, h3, .pixel-font { font-family: 'Press Start 2P', cursive; }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            min-height: 150px;
+        }
+        .logo-container img {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            image-rendering: auto;
+        }
+
+        .voxel-border {
+            box-shadow: 4px 0 0 0 #000, -4px 0 0 0 #000, 0 4px 0 0 #000, 0 -4px 0 0 #000;
+            border: 4px solid #1e293b;
+        }
+
+        .btn-voxel {
+            border: 4px solid #000;
+            padding: 12px 24px;
+            background: var(--voxel-green);
+            color: #000;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.1s;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        .btn-voxel:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+            background: #fff;
+        }
+
+        .yt-post-card {
+            background: #161925;
+            border: 4px solid #000;
+            padding: 24px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .yt-post-card::before {
+            content: 'DEVLOG UPDATE';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #FF0000;
+            color: white;
+            font-family: 'Press Start 2P';
+            font-size: 8px;
+            padding: 4px 10px;
+            border: 2px solid #000;
+        }
+        .post-text {
+            line-height: 1.5;
+            white-space: pre-wrap;
+            color: #CBD5E1;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 4px solid #000;
+            background: #000;
+            box-shadow: 12px 12px 0px #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 bg-[#0B0E14] border-b-4 border-black p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="pixel-font text-[10px] md:text-xs text-[#4ADE80]">VOXEL ODYSSEY</span>
+            <div class="hidden md:flex space-x-8 text-xl">
+                <a href="#home" class="hover:text-[#4ADE80]">HOME</a>
+                <a href="#feed" class="hover:text-[#4ADE80]">DEVLOG</a>
+                <a href="#video" class="hover:text-[#4ADE80]">VIDEO</a>
+                <a href="#socials" class="hover:text-[#4ADE80]">SOCIALS</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="py-12 flex flex-col items-center justify-center text-center px-4">
+        <div class="max-w-5xl w-full">
+            <div class="logo-container">
+                <img src="edited-image.jpg" alt="VOXEL ODYSSEY" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+                <h1 id="logo-fallback" class="hidden text-4xl md:text-6xl text-[#4ADE80] drop-shadow-[4px_4px_0_#000]">VOXEL<br>ODYSSEY</h1>
+            </div>
+            
+            <p class="pixel-font text-xl text-[#4ADE80] mb-12 tracking-widest uppercase">Infinite Potential</p>
+            
+            <div class="bg-[#161925] p-8 border-4 border-black voxel-border relative text-left mx-auto max-w-2xl">
+                <p class="text-2xl leading-relaxed text-slate-300">
+                    "This site will be my development diary. Here I'll be sharing all the progress, new features, and behind-the-scenes stuff from the creation of the game. Voxel Odyssey is heavily inspired by Cube World — the game I’ve loved for many years."
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section id="feed" class="py-12 container mx-auto px-4 max-w-4xl">
+        <div class="flex items-center gap-4 mb-16">
+            <h2 class="pixel-font text-xl text-white">COMMUNITY FEED</h2>
+            <div class="h-1 flex-grow bg-black"></div>
+        </div>
+
+        <div class="yt-post-card">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-[#4ADE80] border-2 border-black flex items-center justify-center text-black font-bold text-sm">1337</div>
+                <div>
+                    <p class="font-bold text-[#4ADE80] text-xl">@1337Renty</p>
+                    <p class="text-xs text-slate-500 uppercase font-sans font-bold">04.05.2026</p>
+                </div>
+            </div>
+            <div class="post-text text-xl">
+Hey everyone!
+Right now, my main focus is village generation — I want the world to feel alive with different unique buildings and cozy interiors.
+
+I'm also working on additional tools that will make it much easier to import any voxel textures into the game. This will greatly speed up future updates and help me release the game faster.
+
+I'll be posting videos and devlogs whenever I have something cool to show — no strict schedule, just real progress.
+
+The blog is still quiet, but I really hope some of you will start following the development. 
+Every like, comment and subscriber motivates me a lot ❤️
+Thanks for being here!
+            </div>
+        </div>
+
+        <div class="yt-post-card">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-[#4ADE80] border-2 border-black flex items-center justify-center text-black font-bold text-sm">1337</div>
+                <div>
+                    <p class="font-bold text-[#4ADE80] text-xl">@1337Renty</p>
+                    <p class="text-xs text-slate-500 uppercase font-sans font-bold">03.05.2026</p>
+                </div>
+            </div>
+            <div class="post-text text-xl">
+Hey everyone!
+
+My name is Renty (also 1337), and I'm developing a game called Voxel Odyssey.
+
+This channel will be my development diary. Here I'll be sharing all the progress, new features, and behind-the-scenes stuff from the creation of the game. Voxel Odyssey is heavily inspired by Cube World — the game I’ve loved for many years. Unfortunately, I (like many others) was deeply disappointed by how the original project was handled after its long-awaited release. Cube World had enormous potential, but it was never realized.
+
+Back in 2016 I already dreamed of making my own version, but I didn’t have the skills or tools at the time. Now I’ve decided it’s the right moment. I’m developing the game completely alone, investing my own money and time. My father is a professional artist, and I hope he’ll help me with visuals later in development. 
+
+I see huge potential in this project. I want to create a vibrant voxel world with deep exploration, challenging bosses, interesting dungeons, meaningful dialogues, and a rich story. I’m also inspired by World of Warcraft and Dark Souls.
+
+My goal is to make a game where players can:
+- Create their own servers
+- Do role-playing
+- Have long-term replayability
+
+I don’t want to repeat the sad story of Cube World. I want Voxel Odyssey to live, grow, and stay interesting for a very long time. 
+
+If you’re interested in the development process — welcome! I’ll be posting updates here much more frequently than on my other projects. 
+And if you’d like to support the development financially, feel free to write in the comments. Every bit of support helps a lot.
+
+Thank you for being here! ❤️
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="py-16 bg-[#161925] border-y-8 border-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="pixel-font text-lg mb-10 text-[#4ADE80]">LATEST REVEAL</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="video-wrapper">
+                    <!-- Added enablejsapi=1 to help browser communication -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/5T56R8CscfA?enablejsapi=1" 
+                        title="Voxel Odyssey" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="socials" class="py-20 bg-[#4ADE80] text-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="pixel-font text-xl mb-12 uppercase">Join Community</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://t.me/voxelodyssey" target="_blank" class="btn-voxel bg-white">Telegram</a>
+                <a href="https://www.youtube.com/@1337Renty" target="_blank" class="btn-voxel bg-white">YouTube</a>
+                <a href="https://www.tiktok.com/@1337Renty" target="_blank" class="btn-voxel bg-white">TikTok</a>
+                <a href="https://www.instagram.com/1337Renty" target="_blank" class="btn-voxel bg-white">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="p-10 text-center bg-black">
+        <p class="pixel-font text-[10px] text-slate-500 mb-2 uppercase">Voxel Odyssey Project</p>
+        <p class="pixel-font text-xs text-[#4ADE80]">DEVELOPED BY 1337Renty</p>
+    </footer>
+
+</body>
+</html>
